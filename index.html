@@ -3,244 +3,278 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>A Little Flower For You 🌷</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Nunito:wght@600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#fbd9e6">
+<title>May I Court You? 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Caveat:wght@500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --cream:#fff8ee; --pink:#ffb6cf; --rose:#f47aa6; --deep:#d9558a; --lav:#d9c9ff;
-  --leaf:#a8dcae; --leaf-d:#6fbf84; --soil:#a77a62; --ink:#5b3a52;
-  --bg1:#ffe9f1; --bg2:#efe6ff; --bg3:#fff8ee;
-  box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg1:#fde3ec;--bg2:#ebe0fa;--bg3:#fff6ea;
+  --ink:#6b3350;--soft:#9a6b86;--card:rgba(255,255,255,.72);
+  --pink:#ff8fb5;--pink2:#ffb3cd;--lav:#cdbdf0;--lavink:#5a4a82;--glow:rgba(255,120,170,.45);
+  --serif:"Cormorant Garamond",Georgia,serif;--hand:"Caveat","Segoe Script",cursive;--sans:"Nunito",system-ui,-apple-system,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
-:root:not([data-theme="light"]){}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--ink:#5b3a52}
-}
-*,*::before,*::after{box-sizing:inherit;-webkit-tap-highlight-color:transparent}
-html,body{height:100%;margin:0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#3a1f33;--bg2:#2b2447;--bg3:#3a2a35;--ink:#ffe3ee;--soft:#e6b9cf;--card:rgba(255,255,255,.1);--lav:#6b5c9c;--lavink:#f0e8ff}}
+:root[data-theme="dark"]{--bg1:#3a1f33;--bg2:#2b2447;--bg3:#3a2a35;--ink:#ffe3ee;--soft:#e6b9cf;--card:rgba(255,255,255,.1);--lav:#6b5c9c;--lavink:#f0e8ff}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0;overflow:hidden}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{
-  background:linear-gradient(170deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%);
-  color:var(--ink);font-family:'Nunito',system-ui,sans-serif;
-  overflow-x:hidden;-webkit-user-select:none;user-select:none;
-}
-.page{
-  min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;
-  padding:clamp(20px,4vh,40px) 18px clamp(20px,4vh,36px);gap:12px;position:relative;
-}
-.glow{position:fixed;border-radius:50%;filter:blur(50px);opacity:.55;pointer-events:none;z-index:0}
-.g1{width:55vmin;height:55vmin;background:var(--lav);top:-12vmin;left:-14vmin}
-.g2{width:60vmin;height:60vmin;background:var(--pink);bottom:-18vmin;right:-16vmin}
-.top{position:relative;z-index:1;text-align:center;max-width:26rem;min-height:5.5rem;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
-h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(1.35rem,5.6vw,2rem);line-height:1.25;margin:0}
-.sub{font-size:clamp(.9rem,3.6vw,1.05rem);margin:.5rem 0 0;opacity:.8}
-.stage{position:relative;z-index:1;width:min(88vw,360px);flex:1 1 auto;min-height:0;max-height:52vh;display:flex;align-items:flex-end;justify-content:center}
-svg.scene{width:100%;height:100%;max-height:52vh;overflow:visible;touch-action:manipulation}
-.bottom{position:relative;z-index:1;width:100%;max-width:26rem;text-align:center;min-height:9rem;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:14px}
-.msg{font-family:'Fraunces',Georgia,serif;font-size:clamp(1rem,4.2vw,1.2rem);line-height:1.45;margin:0;min-height:1.5em}
-.msg2{font-size:clamp(.9rem,3.8vw,1.05rem);opacity:0;transition:opacity 1s;margin:0}
-.msg2.on{opacity:.85}
-.btn{
-  font:700 1.05rem 'Nunito',system-ui,sans-serif;color:#fff;border:0;cursor:pointer;
-  min-height:52px;padding:0 28px;width:min(100%,19rem);border-radius:999px;
-  background:linear-gradient(135deg,#f58bb2,#d9558a);box-shadow:0 10px 24px -8px rgba(217,85,138,.65),inset 0 1px 0 rgba(255,255,255,.4);
-  transition:transform .15s,box-shadow .15s,opacity .5s;
-}
+body{background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));color:var(--ink);font-family:var(--sans);-webkit-tap-highlight-color:transparent}
+#bg{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#bg i{position:absolute;bottom:-40px;font-style:normal;opacity:0;animation:floaty linear infinite;will-change:transform}
+@keyframes floaty{0%{transform:translate3d(0,0,0) rotate(0);opacity:0}10%{opacity:.7}90%{opacity:.5}100%{transform:translate3d(var(--dx),-115vh,0) rotate(40deg);opacity:0}}
+.screen{position:fixed;inset:0;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;align-items:center;
+  padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));
+  opacity:0;visibility:hidden;transform:translateY(18px) scale(.98);transition:opacity .6s ease,transform .6s ease,visibility 0s .6s}
+.screen.active{opacity:1;visibility:visible;transform:none;transition:opacity .6s ease .15s,transform .6s ease .15s,visibility 0s}
+.wrap{margin:auto;width:100%;max-width:520px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2.4vh,18px);padding:8px 0}
+h1,h2{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0;color:var(--ink);text-wrap:balance;outline:none}
+h1{font-size:clamp(2rem,9vw,3.4rem)}
+.q{font-size:clamp(2.2rem,11vw,4rem);font-style:italic}
+.sub{font-size:clamp(1rem,4.2vw,1.2rem);color:var(--soft);margin:0;font-weight:600}
+.hand{font-family:var(--hand);font-size:clamp(1.5rem,6.2vw,2rem);color:var(--soft);margin:0;line-height:1.2}
+.btn{font:800 clamp(1rem,4.2vw,1.15rem)/1.1 var(--sans);min-height:48px;min-width:44px;padding:14px 28px;border:0;border-radius:999px;cursor:pointer;touch-action:manipulation;color:#7a2447;
+  background:linear-gradient(135deg,var(--pink2),var(--pink));box-shadow:0 8px 22px var(--glow);transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px) scale(1.04)}
 .btn:active{transform:scale(.97)}
-.btn:focus-visible,.flower-hit:focus-visible{outline:3px solid var(--lav);outline-offset:3px}
-.btn[hidden]{display:none}
-.fade-in{animation:fade .8s both}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.secret{font-family:'Fraunces',serif;font-style:italic;color:var(--deep);font-size:clamp(1rem,4.2vw,1.15rem);margin:0;min-height:1.4em}
-
-/* growth */
-.seed{transform-origin:180px 372px}
-.seed.wiggle{animation:wig .9s ease-in-out}
-@keyframes wig{0%,100%{transform:rotate(0)}15%{transform:rotate(-14deg)}35%{transform:rotate(12deg)}55%{transform:rotate(-9deg)}75%{transform:rotate(6deg)}}
-.stem{stroke-dasharray:220;stroke-dashoffset:220;transition:stroke-dashoffset 2.4s cubic-bezier(.4,.1,.3,1)}
-.grow .stem{stroke-dashoffset:0}
-.leaf{transform:scale(0);opacity:0;transition:transform 1s cubic-bezier(.3,1.5,.5,1),opacity .5s}
-.leaf.on{transform:scale(1);opacity:1}
-.bloom-wrap{transform-box:fill-box;transform-origin:50% 100%}
-.petal{transform-box:fill-box;transform-origin:50% 100%;transition:transform 2.6s cubic-bezier(.3,.9,.3,1)}
-.bud{transform-box:fill-box;transform-origin:50% 100%;transform:scale(0);transition:transform 1.4s cubic-bezier(.3,1.4,.5,1)}
-.bud.on{transform:scale(1)}
-.p-back{transform:scale(.55)} .p-left{transform:scale(.6) rotate(0)} .p-right{transform:scale(.6) rotate(0)} .p-front{transform:scale(.62)}
-.open .p-back{transform:scale(1)}
-.open .p-left{transform:rotate(-28deg) scale(1)}
-.open .p-right{transform:rotate(28deg) scale(1)}
-.open .p-front{transform:scale(1)}
-.center-glow{opacity:0;transition:opacity 2s}
-.open .center-glow{opacity:1}
-.flower-hit{cursor:pointer;outline:none}
-.sway{transform-box:fill-box;transform-origin:50% 100%}
-.swaying .sway{animation:sway 4s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
-.poke{animation:poke .45s}
-@keyframes poke{40%{transform:scale(1.08) rotate(3deg)}}
-.hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
-.heart{position:absolute;bottom:22%;font-size:14px;opacity:0;animation:rise 4s ease-out forwards;will-change:transform,opacity}
-@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.6)}15%{opacity:.9}100%{opacity:0;transform:translateY(-34vh) translateX(var(--dx)) scale(1.1)}}
-.dust{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;opacity:.7;animation:twinkle 3s ease-in-out infinite}
-@keyframes twinkle{50%{opacity:.15;transform:scale(.6)}}
-@media (orientation:landscape) and (max-height:520px){
-  .page{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 28px;padding-top:12px;padding-bottom:12px}
-  .top,.bottom{flex:1 1 40%;min-height:0}
-  .stage{flex:0 0 auto;width:min(40vw,280px);max-height:80vh;order:2;height:80vh}
-  .top{order:1} .bottom{order:3;flex-basis:100%;min-height:0;flex-direction:row;flex-wrap:wrap;justify-content:center}
-  .page{align-content:center}
-}
+.btn:focus-visible{outline:3px solid var(--lavink);outline-offset:3px}
+.btn.yes{font-size:clamp(1.15rem,5vw,1.4rem);padding:16px 38px;animation:glow 2.2s ease-in-out infinite}
+@keyframes glow{50%{box-shadow:0 8px 34px rgba(255,100,160,.8),0 0 0 8px rgba(255,150,190,.2)}}
+.btn.no{background:var(--lav);color:var(--lavink);box-shadow:0 4px 12px rgba(120,100,180,.25);padding:12px 22px;font-size:1rem}
+.btn.ghost{background:var(--card);color:var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.btns{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:16px 20px;margin-top:6px;width:100%}
+.nowrap{display:inline-block}
+.btn.no.fly{position:fixed;left:0;top:0;z-index:20;transition:transform .38s cubic-bezier(.34,1.56,.64,1)}
+.card{background:var(--card);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:28px;padding:clamp(18px,5vw,28px);box-shadow:0 10px 30px rgba(190,110,150,.18);width:100%}
+.card p{margin:0 0 10px;font-size:clamp(1rem,4.2vw,1.12rem);line-height:1.6}
+.char{width:clamp(120px,38vw,170px);height:auto;cursor:pointer;touch-action:manipulation;background:none;border:0;padding:0;display:block;animation:bob 3s ease-in-out infinite;filter:drop-shadow(0 10px 14px var(--glow))}
+.char:focus-visible{outline:3px solid var(--lavink);outline-offset:6px;border-radius:30px}
+.char.cheer{animation:cheer .9s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(-3deg)}}
+@keyframes cheer{25%{transform:translateY(-18px) scale(1.1) rotate(-8deg)}75%{transform:translateY(-6px) scale(1.05) rotate(8deg)}}
+.beat{animation:beat 1.4s ease-in-out infinite;transform-origin:center}
+@keyframes beat{15%{transform:scale(1.08)}30%{transform:scale(1)}45%{transform:scale(1.05)}}
+.bubble{position:fixed;z-index:60;background:#fff;color:#5a2342;font:800 clamp(1rem,4.4vw,1.15rem)/1.3 var(--sans);padding:12px 18px;border-radius:20px;border:2px solid #ff8fb5;box-shadow:0 8px 24px rgba(120,40,80,.35);width:max-content;max-width:min(260px,calc(100vw - 24px));text-align:center;pointer-events:none;opacity:0;transition:opacity .25s;left:0;top:0}
+.bubble.on{opacity:1}
+#toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top,0px) + 16px);transform:translate(-50%,-30px);opacity:0;z-index:40;background:#fff;color:var(--ink);font-family:var(--hand);font-size:1.5rem;padding:10px 20px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.15);max-width:calc(100vw - 24px);text-align:center;transition:.4s;pointer-events:none}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+.fx{position:fixed;pointer-events:none;z-index:50;font-style:normal;left:0;top:0;will-change:transform,opacity;animation:fx var(--d,1.2s) ease-out forwards}
+@keyframes fx{0%{transform:translate3d(var(--x0,0),var(--y0,0),0) scale(.4);opacity:1}100%{transform:translate3d(var(--x1),var(--y1),0) rotate(var(--r)) scale(1);opacity:0}}
+.rise{animation:rise .9s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+[hidden]{display:none!important}
+.pop{animation:pop .7s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.flowers{font-size:clamp(3.4rem,18vw,5.2rem);line-height:1;filter:drop-shadow(0 0 18px var(--glow));animation:bob 3s ease-in-out infinite}
+.sig{font-family:var(--hand);font-size:clamp(1.6rem,7vw,2.1rem);color:var(--soft);margin:8px 0 0!important}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  #bg{display:none}
 }
 </style>
 </head>
 <body>
-<div class="glow g1"></div><div class="glow g2"></div>
-<main class="page">
-  <header class="top" aria-live="polite">
-    <h1 id="title">I made something for you 🌱</h1>
-  </header>
+<div id="bg" aria-hidden="true"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div class="bubble" id="bubble" aria-hidden="true"></div>
 
-  <div class="stage" id="stage">
-    <svg class="scene" id="scene" viewBox="0 0 360 420" preserveAspectRatio="xMidYMax meet" role="img" aria-label="A seed in soil that grows into a pink tulip">
-      <defs>
-        <radialGradient id="pg" cx="50%" cy="80%" r="80%"><stop offset="0" stop-color="#ff9cc0"/><stop offset="1" stop-color="#f06a9b"/></radialGradient>
-        <radialGradient id="pg2" cx="50%" cy="70%" r="80%"><stop offset="0" stop-color="#ffc7dc"/><stop offset="1" stop-color="#f58bb2"/></radialGradient>
-        <radialGradient id="glw"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-        <linearGradient id="soilg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b98b72"/><stop offset="1" stop-color="#8d6350"/></linearGradient>
-        <linearGradient id="lf" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#6fbf84"/><stop offset="1" stop-color="#b9e8bb"/></linearGradient>
-      </defs>
-      <!-- soil -->
-      <ellipse cx="180" cy="396" rx="118" ry="20" fill="rgba(120,70,90,.12)"/>
-      <path d="M70 380 Q180 350 290 380 Q285 412 180 414 Q75 412 70 380Z" fill="url(#soilg)"/>
-      <circle cx="105" cy="388" r="3" fill="#8d6350"/><circle cx="250" cy="392" r="3.5" fill="#8d6350"/><circle cx="215" cy="400" r="2.5" fill="#7a5545"/>
-      <!-- seed -->
-      <g class="seed" id="seed"><ellipse cx="180" cy="370" rx="9" ry="6.5" fill="#6b4a3a"/><ellipse cx="177" cy="368" rx="3" ry="1.8" fill="#9b7460"/></g>
-
-      <g id="plant" class="sway">
-        <path class="stem" id="stem" d="M180 372 C176 330 186 290 180 190" fill="none" stroke="#6fbf84" stroke-width="7" stroke-linecap="round"/>
-        <!-- leaves -->
-        <g class="leaf" id="leaf1" style="transform-origin:180px 320px;transform-box:view-box"><path d="M181 322 C214 322 240 300 248 268 C214 266 186 288 181 322Z" fill="url(#lf)"/><path d="M184 318 Q215 298 240 274" stroke="#fff" stroke-opacity=".5" stroke-width="1.5" fill="none"/></g>
-        <g class="leaf" id="leaf2" style="transform-origin:180px 275px;transform-box:view-box"><path d="M179 276 C146 276 120 254 112 222 C146 220 174 242 179 276Z" fill="url(#lf)"/><path d="M176 272 Q145 252 120 228" stroke="#fff" stroke-opacity=".5" stroke-width="1.5" fill="none"/></g>
-
-        <!-- flower -->
-        <g class="flower-hit" id="flower" tabindex="-1" role="button" aria-label="Tap the flower" style="pointer-events:none">
-          <g id="bloom" class="bloom-wrap">
-            <circle class="center-glow" cx="180" cy="130" r="78" fill="url(#glw)"/>
-            <g class="bud" id="bud" style="transform-origin:180px 196px;transform-box:view-box">
-              <path class="petal p-back" d="M180 196 C142 188 130 130 150 92 C165 108 178 100 180 80 C182 100 195 108 210 92 C230 130 218 188 180 196Z" fill="url(#pg2)" style="transform-origin:180px 196px;transform-box:view-box"/>
-              <path class="petal p-left" d="M180 196 C138 186 134 126 160 92 C182 118 192 160 180 196Z" fill="url(#pg)" style="transform-origin:180px 196px;transform-box:view-box"/>
-              <path class="petal p-right" d="M180 196 C222 186 226 126 200 92 C178 118 168 160 180 196Z" fill="url(#pg)" style="transform-origin:180px 196px;transform-box:view-box"/>
-              <path class="petal p-front" d="M180 198 C150 190 148 130 180 88 C212 130 210 190 180 198Z" fill="url(#pg2)" style="transform-origin:180px 196px;transform-box:view-box"/>
-              <path d="M180 100 Q172 150 180 190" stroke="#fff" stroke-opacity=".35" stroke-width="2" fill="none" stroke-linecap="round"/>
-              <path d="M168 192 Q180 204 192 192 L186 204 Q180 208 174 204Z" fill="#8fd09a"/>
-            </g>
-          </g>
-        </g>
-      </g>
-      <g id="sprout" style="opacity:0;transition:opacity .6s"></g>
-    </svg>
-    <div class="hearts" id="hearts" aria-hidden="true"></div>
+<!-- Screen 1 -->
+<main class="screen active" id="intro">
+  <div class="wrap">
+    <button class="char" data-egg aria-label="A little envelope with a heart. Tap it for a tiny surprise">
+      <svg viewBox="0 0 160 130" aria-hidden="true">
+        <rect x="14" y="30" width="132" height="86" rx="14" fill="#fff" stroke="#ffb3cd" stroke-width="3"/>
+        <path d="M16 36 L80 82 L144 36" fill="none" stroke="#ffb3cd" stroke-width="3" stroke-linejoin="round"/>
+        <path class="beat" d="M80 70c-22-14-20-32-6-32 5 0 6 4 6 4s1-4 6-4c14 0 16 18-6 32z" fill="#ff8fb5" transform="translate(0 -8)"/>
+        <text x="132" y="28" font-size="16">✨</text><text x="12" y="26" font-size="12">✦</text>
+      </svg>
+    </button>
+    <h1 tabindex="-1">I have a question for you... 🥹</h1>
+    <p class="hand">And I hope you'll say yes. 👉👈</p>
+    <button class="btn" id="openBtn">Open my question 💌</button>
   </div>
+</main>
 
-  <section class="bottom" aria-live="polite">
-    <p class="msg" id="msg"></p>
-    <p class="msg2" id="msg2"></p>
-    <p class="secret" id="secret"></p>
-    <button class="btn" id="growBtn" type="button">Grow a flower 💗</button>
-    <button class="btn" id="keepBtn" type="button" hidden>Keep the flower 💗</button>
-  </section>
+<!-- Screen 2 -->
+<main class="screen" id="ask" inert>
+  <div class="wrap">
+    <button class="char" data-egg aria-label="A little heart holding a letter. Tap it for hearts">
+      <svg viewBox="0 0 160 160" aria-hidden="true">
+        <g class="beat"><path d="M80 138C22 100 20 52 48 40c16-7 28 2 32 14 4-12 16-21 32-14 28 12 26 60-32 98z" fill="#ff8fb5"/>
+        <path d="M80 138C22 100 20 52 48 40" fill="none" stroke="#ffc2d8" stroke-width="5" stroke-linecap="round" opacity=".6" transform="translate(4 4) scale(.95)"/></g>
+        <circle cx="62" cy="76" r="5" fill="#6b3350"/><circle cx="98" cy="76" r="5" fill="#6b3350"/>
+        <circle cx="52" cy="88" r="7" fill="#ff5f95" opacity=".45"/><circle cx="108" cy="88" r="7" fill="#ff5f95" opacity=".45"/>
+        <path d="M72 88q8 8 16 0" fill="none" stroke="#6b3350" stroke-width="3" stroke-linecap="round"/>
+        <rect x="56" y="102" width="48" height="32" rx="5" fill="#fff" stroke="#ebe0fa" stroke-width="2"/>
+        <path d="M57 104l23 16 23-16" fill="none" stroke="#cdbdf0" stroke-width="2"/>
+        <ellipse cx="50" cy="118" rx="8" ry="6" fill="#ff8fb5"/><ellipse cx="110" cy="118" rx="8" ry="6" fill="#ff8fb5"/>
+      </svg>
+    </button>
+    <h2 class="q" tabindex="-1">May I court you? 👉👈💗</h2>
+    <p class="hand">I've been wanting to ask you this for a while...</p>
+    <p class="sub">So, what do you say? 🥹</p>
+    <div class="btns">
+      <button class="btn yes" id="yesBtn">YES! 💗</button>
+      <span class="nowrap" id="noWrap"><button class="btn no" id="noBtn"><span>NO 🙈</span></button></span>
+    </div>
+  </div>
+</main>
+
+<!-- Screen 3 -->
+<main class="screen" id="yes" inert>
+  <div class="wrap">
+    <button class="char cheer" id="cheerChar" data-egg aria-label="A very happy heart. Tap it for hearts">
+      <svg viewBox="0 0 160 160" aria-hidden="true">
+        <path d="M80 138C22 100 20 52 48 40c16-7 28 2 32 14 4-12 16-21 32-14 28 12 26 60-32 98z" fill="#ff7aa8"/>
+        <path d="M54 74q8-9 16 0M90 74q8-9 16 0" fill="none" stroke="#6b3350" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="52" cy="88" r="8" fill="#ff5f95" opacity=".5"/><circle cx="108" cy="88" r="8" fill="#ff5f95" opacity=".5"/>
+        <path d="M68 86q12 18 24 0z" fill="#6b3350"/>
+        <text x="16" y="34" font-size="18">✨</text><text x="124" y="30" font-size="18">✨</text>
+      </svg>
+    </button>
+    <h2 tabindex="-1" style="font-size:clamp(1.9rem,8.5vw,3rem)">WAIT... REALLY?! 🥹💗</h2>
+    <p class="q" id="knew" style="font-size:clamp(1.8rem,8vw,2.8rem)" hidden>I knew it! Hehe. 😭💕</p>
+    <p class="hand" id="thanks" hidden>Thank you for giving me a chance. I'll do my best to make you happy. 💗</p>
+    <div class="flowers" id="bouquet" aria-hidden="true" hidden>💐</div>
+    <button class="btn" id="lastBtn" hidden>One last thing... 💌</button>
+    <div class="card" id="letter" hidden>
+      <p>I may not be perfect, but I promise to be genuine, respect you, and make every moment count. Thank you for giving me this chance. 💗</p>
+      <p class="sig">— From someone who really likes you. 💕</p>
+    </div>
+    <button class="btn ghost" id="replayBtn" hidden>Replay 🔁</button>
+  </div>
 </main>
 
 <script>
 (function(){
-  var $=function(id){return document.getElementById(id)};
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var scene=$('scene'),stage=$('stage'),hearts=$('hearts'),msg=$('msg'),msg2=$('msg2'),secret=$('secret');
-  var growBtn=$('growBtn'),keepBtn=$('keepBtn'),flower=$('flower'),title=$('title');
-  var timers=[],taps=0,bloomed=false,kept=false,secretShown=false;
-  function wait(ms){return new Promise(function(r){timers.push(setTimeout(r,reduce?Math.min(ms,60):ms))})}
+  var $=function(s){return document.querySelector(s)};
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var screens=[].slice.call(document.querySelectorAll('.screen'));
+  var timers=[];
 
-  // twinkles (few, cheap)
-  for(var i=0;i<7;i++){var d=document.createElement('span');d.className='dust';
-    d.style.left=(8+Math.random()*84)+'%';d.style.top=(6+Math.random()*60)+'%';
-    d.style.animationDelay=(Math.random()*3)+'s';stage.appendChild(d);}
-
-  function heart(){
-    if(hearts.children.length>9)return;
-    var h=document.createElement('span');h.className='heart';
-    h.textContent=['💗','💕','🌸','✨'][Math.floor(Math.random()*4)];
-    h.style.left=(30+Math.random()*40)+'%';h.style.setProperty('--dx',(Math.random()*80-40)+'px');
-    h.style.fontSize=(11+Math.random()*9)+'px';
-    hearts.appendChild(h);setTimeout(function(){h.remove()},4200);
-  }
-  function burst(n){for(var i=0;i<n;i++)setTimeout(heart,i*260)}
-
-  function type(el,text,speed){
-    return new Promise(function(res){
-      if(reduce){el.textContent=text;return res()}
-      el.textContent='';var i=0;
-      (function step(){el.textContent=text.slice(0,++i);
-        if(i<text.length)timers.push(setTimeout(step,speed||38));else res()})();
-    });
+  // floating background
+  var bg=$('#bg'),deco=['💗','✦','🌸','✨','💕','🌷','·'];
+  for(var i=0;i<14;i++){
+    var e=document.createElement('i');e.textContent=deco[i%deco.length];
+    e.style.left=(Math.random()*96)+'%';e.style.fontSize=(12+Math.random()*16)+'px';
+    e.style.setProperty('--dx',((Math.random()-.5)*80)+'px');
+    e.style.animationDuration=(14+Math.random()*14)+'s';e.style.animationDelay=(-Math.random()*20)+'s';
+    bg.appendChild(e);
   }
 
-  async function grow(){
-    growBtn.hidden=true;
-    title.textContent='Here we go… 🌱';
-    $('seed').classList.add('wiggle');                       // 1 seed wiggles
-    await wait(1000);
-    title.textContent='A Little Flower For You 🌷';
-    scene.classList.add('grow');                             // 2-3 sprout + stem
-    await wait(1400);
-    $('seed').style.transition='opacity .8s';$('seed').style.opacity='0';
-    await wait(1100);
-    $('leaf1').classList.add('on');                          // 4 leaves one by one
-    await wait(900);
-    $('leaf2').classList.add('on');
-    await wait(1000);
-    $('bud').classList.add('on');                            // 5 bud
-    await wait(1500);
-    scene.classList.add('open');                             // 6-7 bloom
-    await wait(2800);
-    bloomed=true;
-    flower.style.pointerEvents='auto';flower.setAttribute('tabindex','0');
-    burst(5);                                                 // 8 hearts
-    var hb=setInterval(function(){if(!reduce)heart()},2600);timers.push(hb);
-    await type(msg,"I made you a flower because I couldn't exactly hand-code you one in real life. 🌷",34);
-    await wait(500);
-    msg2.textContent='But I hope this one still makes you smile. :)';msg2.classList.add('on');
-    await wait(1200);
-    keepBtn.hidden=false;keepBtn.classList.add('fade-in');
+  function show(id){
+    screens.forEach(function(s){var on=s.id===id;s.classList.toggle('active',on);s.inert=!on;if(on)s.scrollTop=0});
+    var h=$('#'+id+' h1, #'+id+' h2');
+    if(h)setTimeout(function(){try{h.focus({preventScroll:true})}catch(e){}},400);
   }
 
-  function keep(){
-    if(kept)return;kept=true;
-    keepBtn.hidden=true;scene.classList.add('swaying');
-    burst(7);
-    msg2.classList.remove('on');
-    msg.textContent='Okay, you can keep it. I made it just for you anyway. 💕';
-    msg.classList.remove('fade-in');void msg.offsetWidth;msg.classList.add('fade-in');
+  function fx(txt,x,y,x1,y1,d,size){
+    var s=document.createElement('i');s.className='fx';s.textContent=txt;
+    s.style.setProperty('--x0',x+'px');s.style.setProperty('--y0',y+'px');
+    s.style.setProperty('--x1',x1+'px');s.style.setProperty('--y1',y1+'px');
+    s.style.setProperty('--r',((Math.random()-.5)*90)+'deg');s.style.setProperty('--d',d+'s');
+    s.style.fontSize=size+'px';document.body.appendChild(s);
+    setTimeout(function(){s.remove()},d*1000+100);
   }
-
-  function poke(){
-    if(!bloomed||secretShown)return;
-    taps++;
-    var b=$('bloom');b.classList.remove('poke');void b.getBoundingClientRect();b.classList.add('poke');
-    heart();
-    if(taps>=3){
-      secretShown=true;
-      secret.textContent="Psst... I think you're pretty cute too. 👀💗";
-      secret.classList.add('fade-in');burst(6);
+  function tiny(x,y){
+    if(reduce)return;
+    for(var i=0;i<6;i++){var a=Math.random()*Math.PI*2,r=40+Math.random()*40;
+      fx(['💗','💕','💖'][i%3],x,y,x+Math.cos(a)*r,y+Math.sin(a)*r-30,1+Math.random()*.4,14+Math.random()*8)}
+  }
+  function confetti(){
+    if(reduce)return;
+    var w=innerWidth,h=innerHeight,em=['💗','💖','💕','🌸','✨','💝'];
+    for(var i=0;i<38;i++){
+      var x=Math.random()*w;
+      setTimeout(function(x){fx(em[Math.floor(Math.random()*em.length)],w/2,h*.45,x,-60+Math.random()*h*.3,2.2+Math.random()*1.6,16+Math.random()*18)}.bind(null,x),Math.random()*500);
+    }
+    // floating hearts rising from the bottom
+    for(var j=0;j<16;j++){
+      (function(j){setTimeout(function(){var x=Math.random()*w;fx('💗',x,h+20,x+(Math.random()-.5)*60,-40,3+Math.random()*2,18+Math.random()*14)},400+j*160)})(j);
     }
   }
 
-  growBtn.addEventListener('click',grow);
-  keepBtn.addEventListener('click',keep);
-  flower.addEventListener('click',poke);
-  flower.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();poke()}});
+  var toast=$('#toast'),tt;
+  function say(t){toast.textContent=t;toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},3800)}
+
+  // easter egg + tiny hearts
+  var eggs=0,eggT;
+  document.querySelectorAll('[data-egg]').forEach(function(c){
+    c.addEventListener('click',function(ev){
+      var r=c.getBoundingClientRect();
+      tiny(ev.clientX||r.left+r.width/2,ev.clientY||r.top+r.height/2);
+      if(!c.dataset.wig){c.dataset.wig=1;c.animate([{transform:'scale(1)'},{transform:'scale(1.15)'},{transform:'scale(1)'}],{duration:300});setTimeout(function(){delete c.dataset.wig},300)}
+      eggs++;clearTimeout(eggT);eggT=setTimeout(function(){eggs=0},2500);
+      if(eggs>=5){eggs=0;say('Psst... you\'re really cute, by the way. 👀💗')}
+    });
+  });
+
+  $('#openBtn').addEventListener('click',function(){show('ask')});
+
+  // NO button
+  var no=$('#noBtn'),wrap=$('#noWrap'),yes=$('#yesBtn'),bub=$('#bubble');
+  var lines=['Are you sure? 🥺','Wait, think about it! 😭','Give me a chance? 👉👈','Please don\'t break my heart 💔','Pretty please? 🥹'];
+  var dodges=0,moved=false,MAX=3,bt;
+
+  function overlap(a,b,p){return !(a.right+p<b.left||a.left-p>b.right||a.bottom+p<b.top||a.top-p>b.bottom)}
+  function bubbleAt(x,y,w,h,txt){
+    bub.textContent=txt;bub.classList.add('on');
+    var bw=bub.offsetWidth,bh=bub.offsetHeight;
+    var bx=Math.min(Math.max(8,x+w/2-bw/2),innerWidth-bw-8);
+    var by=y-bh-10<8?y+h+10:y-bh-10;
+    bub.style.transform='translate('+bx+'px,'+by+'px)';
+    clearTimeout(bt);bt=setTimeout(function(){bub.classList.remove('on')},3500);
+  }
+  function dodge(){
+    var r=no.getBoundingClientRect();
+    if(!moved){wrap.style.width=r.width+'px';wrap.style.height=r.height+'px';no.classList.add('fly');no.style.transform='translate('+r.left+'px,'+r.top+'px)';moved=true;void no.offsetWidth}
+    var w=no.offsetWidth,h=no.offsetHeight,m=14,vw=innerWidth,vh=innerHeight;
+    var cur=no.getBoundingClientRect(),yr=yes.getBoundingClientRect(),nx=cur.left,ny=cur.top,ok=false;
+    for(var i=0;i<60&&!ok;i++){
+      var x=m+Math.random()*Math.max(0,vw-w-2*m),y=m+Math.random()*Math.max(0,vh-h-2*m);
+      var box={left:x,top:y,right:x+w,bottom:y+h};
+      if(!overlap(box,yr,16)&&Math.hypot(x-cur.left,y-cur.top)>70){nx=x;ny=y;ok=true}
+    }
+    no.style.transform='translate('+nx+'px,'+ny+'px)';
+    if(!reduce)no.firstElementChild.animate([{transform:'rotate(0) scale(1)'},{transform:'rotate(-14deg) scale(1.2)'},{transform:'rotate(10deg) scale(.9)'},{transform:'rotate(0) scale(1)'}],{duration:420});
+    dodges++;
+    bubbleAt(nx,ny,w,h,lines[(dodges-1)%lines.length]);
+  }
+  no.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'&&dodges<MAX)dodge()});
+  no.addEventListener('click',function(){
+    if(dodges<MAX){dodge();return}
+    var r=no.getBoundingClientRect();
+    bubbleAt(r.left,r.top,r.width,r.height,'That\'s okay 🥹 Thank you for being honest. The YES button is always here if you change your mind 💗');
+    
+  });
+  function resetNo(){moved=false;dodges=0;no.classList.remove('fly');no.style.transform='';wrap.style.width=wrap.style.height='';bub.classList.remove('on')}
+  addEventListener('resize',function(){
+    if(!moved)return;var r=no.getBoundingClientRect(),m=14;
+    var x=Math.min(Math.max(m,r.left),Math.max(m,innerWidth-r.width-m));
+    var y=Math.min(Math.max(m,r.top),Math.max(m,innerHeight-r.height-m));
+    no.style.transform='translate('+x+'px,'+y+'px)';
+  });
+
+  // YES
+  function later(f,ms){timers.push(setTimeout(f,ms))}
+  function rise(el){el.hidden=false;el.classList.remove('rise');void el.offsetWidth;el.classList.add('rise')}
+  yes.addEventListener('click',function(ev){
+    bub.classList.remove('on');
+    confetti();show('yes');
+    later(function(){tiny(innerWidth/2,innerHeight/2)},600);
+    later(function(){rise($('#knew'))},1900);
+    later(function(){rise($('#thanks'));rise($('#bouquet'));confetti()},3200);
+    later(function(){rise($('#lastBtn'))},4300);
+  });
+  $('#lastBtn').addEventListener('click',function(){
+    this.hidden=true;rise($('#letter'));tiny(innerWidth/2,innerHeight*.6);
+    later(function(){rise($('#replayBtn'));$('#letter').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'})},900);
+  });
+  $('#replayBtn').addEventListener('click',function(){
+    timers.forEach(clearTimeout);timers=[];
+    ['#knew','#thanks','#bouquet','#lastBtn','#letter','#replayBtn'].forEach(function(s){$(s).hidden=true});
+    resetNo();show('intro');
+  });
 })();
 </script>
 </body>
